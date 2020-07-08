@@ -6,8 +6,6 @@
 clearvars
 rng shuffle
 
-qubeInit;
-
 mdl='rlCartPole';
 open_system(mdl)
 VSS_CONTROL=0; % Basic Control
@@ -111,8 +109,6 @@ bdclose(mdl)
 %% Define Environment
 clearvars
 rng shuffle
-
-qubeInit;
 
 mdl='rlCartPole';
 open_system(mdl)
