@@ -26,6 +26,7 @@ Dp = 2e-5;   % pendulum damping coefficient (Nm/(rad/s)) (determined by experime
 
 % Model Conditions
 alpha0   = 180;  % initial pendulum angle (deg)
+theta0   = 0;    % initial rotary arm angle (deg)
 thetaMax = 135;  % maximum theta travel (deg) (Qube has +/- 135 deg of travel)
 Tf       = 30;   % final time (sec)
 Ts       = 0.02; % step time (sec)
