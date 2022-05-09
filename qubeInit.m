@@ -2,8 +2,7 @@
 % Control Variants
 VSS_CONTROL_BASIC = Simulink.Variant('VSS_CONTROL==0');
 VSS_CONTROL_STATE = Simulink.Variant('VSS_CONTROL==1');
-VSS_CONTROL_PIDc  = Simulink.Variant('VSS_CONTROL==2');
-VSS_CONTROL_PIDp  = Simulink.Variant('VSS_CONTROL==3');
+VSS_CONTROL_FF    = Simulink.Variant('VSS_CONTROL==2');
 
 VSS_CONTROL = 0; %Initialize to basic controller
 
@@ -35,3 +34,20 @@ minLimit = -10;  % minimum motor voltage (V)
 
 % Disturbance 
 disturbance = [0 0 0; Tf 0 0];
+
+% Square Wave demand
+stepSize = 0; % size of the size in demand (set to zero initially)
+stepFreq = 1; % Frequency of the step
+
+% LQR Controller Definition
+A=[0 1 0 0;
+0 -0.0104 149.2751 0;
+0 0 0 1;
+0 -0.0103 261.6091 0];
+
+B = [0;49.7275;0;49.1493];
+
+Q=diag([1,0,5,0]);
+R=1;
+
+Klqr = lqr(A,B,Q,R);
